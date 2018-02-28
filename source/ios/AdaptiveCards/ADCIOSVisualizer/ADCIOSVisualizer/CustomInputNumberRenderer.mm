@@ -16,8 +16,6 @@
     return singletonInstance;
 }
 
-//+ (ACRCardElementType)elemType;
-
 - (UIView *)render:(UIView<ACRIContentHoldingView> *)viewGroup
             rootViewController:(UIViewController *)vc
             inputs:(NSArray *)inputs
@@ -33,6 +31,11 @@
                                  hostConfig:acoConfig];
     if(input)
     {
+        NSString *jsonString = input.addtionalProperty;
+        // do something with jsonInString
+        NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+        id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+
         [input setBackgroundColor: [UIColor colorWithRed:1.0
                                                    green:59.0/255.0
                                                     blue:48.0/255.0

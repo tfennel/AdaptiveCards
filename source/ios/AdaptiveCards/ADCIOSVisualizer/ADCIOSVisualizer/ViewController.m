@@ -152,6 +152,7 @@
     ACRRenderResult *renderResult;
     ACOHostConfigParseResult *hostconfigParseResult = [ACOHostConfig fromJson:self.hostconfig];
     ACOAdaptiveCardParseResult *cardParseResult = [ACOAdaptiveCard fromJson:jsonStr];
+
     if(cardParseResult.isValid)
     {
         renderResult = [ACRRenderer render:cardParseResult.card
@@ -226,12 +227,15 @@
     }
 }
 
-- (void)didFetchUserResponses:(NSData *)json data:(NSString *) data error:(NSError *)error
+- (void)didFetchUserResponses:(ACOAdaptiveCard *)card Action(ACOAction *)action error:(NSError *)error
 {
-    if(!error && json && data)
-    {
-        NSString *str = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
-        NSLog(@"user response fetched: %@ with %@", str, data);
+    // check type of action
+    if([action isClassOf:[ACOActionSubmit class]]){
+        NSData *userInput = [card gatherInput];
+    } else if([action isClassOf:[ACOActionOpenURL class]]){
+        // do something
+    } else {
+        // render show card <- what should be in there?
     }
 }
 

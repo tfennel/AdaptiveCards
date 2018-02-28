@@ -1,8 +1,12 @@
 1. Instantiating a renderer 
                  fromJson
 2. Parsing json payload to an object
-3. Wiring Action Events
-4. HostConfig
-5. Custom Element Rendering
-6. Custom (AKA Additional) Properties
+     didFetchUserResponses
+3. HostConfig
+4. Custom Element Rendering
+5. Custom (AKA Additional) Properties
+6. Wiring Action Events
+    - (void)didFetchUserResponses:(NSData *)json error:(NSError *)error
 7. Custom Parsing
+    [registration setParser:[CustomParser getInstance] cardElementType:ACRCutomType Renderer:[RatingRenderer getInstance]];
+
