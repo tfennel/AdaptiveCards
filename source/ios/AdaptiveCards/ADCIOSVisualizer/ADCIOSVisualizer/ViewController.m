@@ -158,6 +158,11 @@
                                     config:hostconfigParseResult.config
                                      frame:CGRectMake(0, 0, 500, 0)];
     }	
+    else
+    {
+        // NSArray of ParseErrors  of NSError type
+        NSLog("Parse Errors %@", cardParseResult.parseErrors);
+    }
     
     if(renderResult.succeeded)
     {
