@@ -59,7 +59,7 @@ namespace AdaptiveCards.Rendering.Xamarin.Android.Sample
         {
             try
             {
-                AdaptiveCard adaptiveCard = AdaptiveCard.DeserializeFromString(jsonText, AdaptiveCardRenderer.VERSION);
+                AdaptiveCard adaptiveCard = AdaptiveCard.DeserializeFromString(jsonText, AdaptiveCardRenderer.Version);
                 Toast.MakeText(this, adaptiveCard.Body.Capacity().ToString(), ToastLength.Short).Show();
                 LinearLayout layout = (LinearLayout)FindViewById(Resource.Id.visualAdaptiveCardLayout);
                 layout.RemoveAllViews();
