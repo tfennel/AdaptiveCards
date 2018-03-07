@@ -1,3 +1,4 @@
+# Announcing Adaptive Cards 1.0! 
 
 
 # Adaptive Cards
